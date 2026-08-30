@@ -1,0 +1,12 @@
+{
+  "name": "traum2-giveaway",
+  "version": "1.0.0",
+  "description": "Traum2 300 Member Giveaway",
+  "private": true,
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "vercel": "latest"
+  }
+}

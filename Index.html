@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Traum2 – 300 Member Giveaway</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top, #35127a 0%, #16082d 35%, #080812 75%);
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+        }
+
+        .card {
+            background: rgba(15, 15, 30, 0.95);
+            border: 1px solid rgba(150, 80, 255, 0.35);
+            border-radius: 24px;
+            padding: 40px;
+
+            box-shadow:
+                0 0 60px rgba(120, 40, 255, 0.18),
+                inset 0 0 30px rgba(120, 40, 255, 0.03);
+
+            backdrop-filter: blur(15px);
+
+            animation: appear 0.5s ease;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(15px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 44px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+
+            background: linear-gradient(
+                90deg,
+                #7b2cbf,
+                #c77dff,
+                #9d4edd
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge {
+            width: fit-content;
+            margin: 0 auto 20px;
+            padding: 8px 16px;
+
+            border-radius: 999px;
+
+            background: rgba(145, 65, 255, 0.15);
+            border: 1px solid rgba(170, 90, 255, 0.4);
+
+            color: #c77dff;
+
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #aaa;
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        .description {
+            text-align: center;
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .conditions {
+            background: rgba(255,255,255,0.035);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .conditions h2 {
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        .conditions ul {
+            list-style: none;
+        }
+
+        .conditions li {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 11px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .conditions li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #c77dff;
+            font-weight: bold;
+        }
+
+        .warning {
+            color: #888;
+            font-size: 12px;
+            line-height: 1.5;
+            margin-top: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ddd;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            background: #0b0b16;
+            border: 1px solid #29233b;
+            border-radius: 12px;
+            color: white;
+            padding: 14px 15px;
+            outline: none;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        input {
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+            margin-bottom: 5px;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #9d4edd;
+
+            box-shadow:
+                0 0 0 3px rgba(157, 78, 221, 0.12);
+        }
+
+        button {
+            width: 100%;
+            border: none;
+            border-radius: 13px;
+            padding: 15px;
+
+            background: linear-gradient(
+                90deg,
+                #7b2cbf,
+                #9d4edd
+            );
+
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+
+            box-shadow:
+                0 8px 25px rgba(123, 44, 191, 0.25);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 30px rgba(123, 44, 191, 0.4);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .back-button {
+            background: rgba(255,255,255,0.05);
+            box-shadow: none;
+            margin-top: 12px;
+        }
+
+        .back-button:hover {
+            background: rgba(255,255,255,0.08);
+            box-shadow: none;
+        }
+
+        .message {
+            display: none;
+            margin-top: 20px;
+            padding: 14px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .success {
+            display: block;
+            background: rgba(50,200,120,0.1);
+            border: 1px solid rgba(50,200,120,0.3);
+            color: #67e8a5;
+        }
+
+        .error {
+            display: block;
+            background: rgba(255,70,70,0.1);
+            border: 1px solid rgba(255,70,70,0.3);
+            color: #ff8585;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .footer {
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            margin-top: 22px;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 25px 20px;
+            }
+
+            .logo {
+                font-size: 34px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <div id="conditionsPage">
+
+            <div class="badge">
+                🎉 300 DISCORD MEMBER
+            </div>
+
+            <div class="logo">
+                TRAUM2
+            </div>
+
+            <h1>
+                300 Member Giveaway
+            </h1>
+
+            <p class="subtitle">
+                Danke für 300 Mitglieder auf unserem Discord!
+            </p>
+
+            <p class="description">
+                Zur Feier unseres 300-Member-Meilensteins
+                verlosen wir <strong>3× Discord Nitro Basic</strong>.
+            </p>
+
+            <div class="conditions">
+
+                <h2>
+                    📜 Teilnahmebedingungen
+                </h2>
+
+                <ul>
+
+                    <li>
+                        Du musst Mitglied auf dem Traum2 Discord-Server sein.
+                    </li>
+
+                    <li>
+                        Du darfst aktuell kein aktives Discord Nitro
+                        oder Nitro Basic besitzen.
+                    </li>
+
+                    <li>
+                        Jede Person darf nur einmal am Giveaway teilnehmen.
+                    </li>
+
+                    <li>
+                        Die Teilnahme mit Zweitaccounts oder weiteren Accounts
+                        ist ausdrücklich verboten.
+                    </li>
+
+                    <li>
+                        Mehrfach- oder Fake-Teilnahmen führen zum Ausschluss
+                        vom Giveaway.
+                    </li>
+
+                    <li>
+                        Bei Verstößen gegen die Teilnahmebedingungen oder
+                        Serverregeln kann ein Bann oder ein längerer Timeout
+                        ausgesprochen werden.
+                    </li>
+
+                    <li>
+                        Die Gewinner werden nach Ende des Giveaways
+                        zufällig ausgelost.
+                    </li>
+
+                </ul>
+
+                <p class="warning">
+                    Mit der Teilnahme bestätigst du, dass du die
+                    Teilnahmebedingungen gelesen und akzeptiert hast.
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                onclick="showForm()"
+            >
+                🎁 Am Giveaway teilnehmen
+            </button>
+
+        </div>
+
+
+        <div id="formPage" class="hidden">
+
+            <div class="badge">
+                🎁 TEILNAHME
+            </div>
+
+            <div class="logo">
+                TRAUM2
+            </div>
+
+            <h1>
+                Deine Teilnahme
+            </h1>
+
+            <p class="subtitle">
+                Füll die beiden Felder aus und nimm am Giveaway teil.
+            </p>
+
+            <form id="giveawayForm">
+
+                <label for="discord">
+                    👤 Discord Name
+                </label>
+
+                <input
+                    type="text"
+                    id="discord"
+                    name="discordName"
+                    placeholder="WICHTIG: Nicht deinen Anzeigenamen, sondern deinen Benutzernamen!"
+                    maxlength="50"
+                    required
+                >
+
+                <label for="reason">
+                    💭 Warum möchtest du gewinnen?
+                </label>
+
+                <textarea
+                    id="reason"
+                    name="reason"
+                    placeholder="Schreib uns kurz, warum du gerne gewinnen möchtest..."
+                    maxlength="500"
+                    required
+                ></textarea>
+
+                <p class="warning">
+                    Maximal 500 Zeichen.
+                </p>
+
+                <br>
+
+                <button
+                    type="submit"
+                    id="submitButton"
+                >
+                    🎁 Teilnahme abschicken
+                </button>
+
+                <button
+                    type="button"
+                    class="back-button"
+                    onclick="showConditions()"
+                >
+                    ← Zurück zu den Bedingungen
+                </button>
+
+                <div
+                    id="message"
+                    class="message"
+                ></div>
+
+            </form>
+
+        </div>
+
+        <div class="footer">
+            Traum2 • 300 Member Giveaway
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    function showForm() {
+
+        document
+            .getElementById("conditionsPage")
+            .classList
+            .add("hidden");
+
+        document
+            .getElementById("formPage")
+            .classList
+            .remove("hidden");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+
+    function showConditions() {
+
+        document
+            .getElementById("formPage")
+            .classList
+            .add("hidden");
+
+        document
+            .getElementById("conditionsPage")
+            .classList
+            .remove("hidden");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+
+    const form =
+        document.getElementById("giveawayForm");
+
+    const button =
+        document.getElementById("submitButton");
+
+    const message =
+        document.getElementById("message");
+
+
+    form.addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+
+        const discordName =
+            document
+                .getElementById("discord")
+                .value
+                .trim();
+
+
+        const reason =
+            document
+                .getElementById("reason")
+                .value
+                .trim();
+
+
+        if (!discordName || !reason) {
+
+            showMessage(
+                "Bitte füll beide Felder aus.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        button.disabled = true;
+
+        button.innerText =
+            "⏳ Wird gesendet...";
+
+
+        try {
+
+            const response =
+                await fetch("/api/giveaway", {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+
+                        discordName:
+                            discordName,
+
+                        reason:
+                            reason
+
+                    })
+
+                });
+
+
+            const data =
+                await response.json();
+
+
+            if (!response.ok || !data.success) {
+
+                throw new Error(
+                    data.error ||
+                    "Die Teilnahme konnte nicht gesendet werden."
+                );
+
+            }
+
+
+            form.reset();
+
+
+            showMessage(
+                "🎉 Teilnahme erfolgreich abgeschickt! Viel Glück! 🍀",
+                "success"
+            );
+
+
+            button.innerText =
+                "✅ Erfolgreich teilgenommen";
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            showMessage(
+                "❌ " + error.message,
+                "error"
+            );
+
+
+            button.disabled =
+                false;
+
+            button.innerText =
+                "🎁 Teilnahme abschicken";
+
+        }
+
+    });
+
+
+    function showMessage(text, type) {
+
+        message.textContent =
+            text;
+
+        message.className =
+            "message " + type;
+
+    }
+
+</script>
+
+</body>
+</html>
